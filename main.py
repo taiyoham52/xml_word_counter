@@ -62,13 +62,21 @@ else:
         # ファイル名の設定
         base_file_name = './content/word_counts' # XMLファイル名を含むように設定
 
-        # テキストファイル出力
-        txt_file_path = f'{base_file_name}.txt'
+        # 末尾の数値を決定
         counter = 1
+        txt_file_path = f'{base_file_name}_{counter}.txt'
         while os.path.exists(txt_file_path):
-            txt_file_path = f'{base_file_name}_{counter}.txt'
             counter += 1
+            txt_file_path = f'{base_file_name}_{counter}.txt'
 
+        excel_file_path = f'{base_file_name}_{counter}.xlsx'
+        while os.path.exists(excel_file_path):
+            counter += 1
+            excel_file_path = f'{base_file_name}_{counter}.xlsx'
+
+
+        # テキストファイル出力
+        txt_file_path = f'{base_file_name}_{counter}.txt'
         with open(txt_file_path, 'w', encoding='utf-8') as f:
           f.write("単語,出現回数\n")  # ヘッダーを追加
           for word, count in word_counts.items():
@@ -76,11 +84,6 @@ else:
 
 
         # Excelファイル出力
-        excel_file_path = f'{base_file_name}.xlsx'
-        counter = 1
-        while os.path.exists(excel_file_path):
-            excel_file_path = f'{base_file_name}_{counter}.xlsx'
-            counter += 1
-
+        excel_file_path = f'{base_file_name}_{counter}.xlsx'
         df = pd.DataFrame(word_counts.items(), columns=['単語', '出現回数'])
         df.to_excel(excel_file_path, index=False)
