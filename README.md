@@ -15,7 +15,7 @@
 1.  **Pythonと必要なライブラリのインストール:**
     *   Pythonがインストールされていない場合は、[https://www.python.org/](https://www.python.org/) からダウンロードしてインストールしてください。
 2. **XMLファイルを準備する**:
-   *`/content/xml_files`フォルダを作成します。
+   * `/content/xml_files`フォルダを作成します。
    * 解析したいXMLファイルを、 `/content/xml_files` フォルダ内にアップロードします。
 3.  **Pythonスクリプトの実行:**
     *   Pythonスクリプトを実行すると、以下のような質問が表示されます。
